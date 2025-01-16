@@ -3,6 +3,7 @@ plugins {
 }
 
 repositories {
+    mavenCentral()
     maven("https://repo.papermc.io/repository/maven-public/") // paper
     maven("https://repo.william278.net/releases/") // husk
     maven("https://jitpack.io/")
@@ -26,7 +27,7 @@ dependencies {
     // Chat
     compileOnly(files("libs/VentureChat-3.7.1.jar"))
     compileOnly(files("libs/TrChat-2.0.11.jar"))
-    compileOnly(files("libs/carbonchat-paper-3.0.0-beta.27.jar"))
+    compileOnly("de.hexaoxi:carbonchat-api:3.0.0-beta.28")
     compileOnly(files("libs/AdvancedChat-1.3.7.jar"))
     compileOnly(files("libs/CMIAPI-9.7.4.1.jar"))
     compileOnly(files("libs/ChatControl-Red-10.28.3.jar"))
@@ -61,6 +62,6 @@ java {
 
 tasks.withType<JavaCompile> {
     options.encoding = "UTF-8"
-    options.release.set(17)
+    options.release.set(21)
     dependsOn(tasks.clean)
 }

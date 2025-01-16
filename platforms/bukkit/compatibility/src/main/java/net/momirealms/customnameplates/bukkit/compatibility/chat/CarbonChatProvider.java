@@ -172,11 +172,8 @@ public class CarbonChatProvider extends AbstractChatMessageProvider {
         if (channel == null) {
             return false;
         }
-        String perm = channel.permission();
-        if (perm == null) {
-            return true;
-        }
-        return player.hasPermission(perm);
+
+        return channel.permissions().joinPermitted(this.carbonPlayer(player.uuid())).permitted();
     }
 
     @Override
