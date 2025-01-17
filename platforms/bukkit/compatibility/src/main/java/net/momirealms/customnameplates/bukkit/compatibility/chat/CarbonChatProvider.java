@@ -173,7 +173,13 @@ public class CarbonChatProvider extends AbstractChatMessageProvider {
             return false;
         }
 
-        return channel.permissions().joinPermitted(this.carbonPlayer(player.uuid())).permitted();
+        final CarbonPlayer carbonPlayer = this.carbonPlayer(player.uuid());
+
+        if (carbonPlayer != null) {
+            return channel.permissions().joinPermitted(carbonPlayer).permitted();
+        }
+
+        return false;
     }
 
     @Override
